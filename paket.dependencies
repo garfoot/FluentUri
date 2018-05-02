@@ -1,0 +1,14 @@
+source https://api.nuget.org/v3/index.json
+strategy: max
+framework: netstandard2.0
+storage: none
+
+
+group UnitTest
+	source https://api.nuget.org/v3/index.json
+	strategy: max
+	framework: netstandard2.0,netcoreapp2.0
+	storage: none
+
+	nuget FluentAssertions
+	nuget NUnit
