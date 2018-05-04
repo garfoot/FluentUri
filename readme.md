@@ -36,3 +36,12 @@ as required (e.g. ReSharper, nCrunch).
 Run the unit tests from the command line (assuming in solution root) with
 ```dotnet test src/FluentUriBuilder.UnitTests```.
 
+### Environment
+There is a (very) basic docker image configured in the /docker/dev folder
+which can be used to build and test the library. This image is based on
+ubuntu:14.04 instead of microsoft/dotnet:latest to closer match the Travis
+CI build system.
+
+The provided dockerfile will build and image with dotnet-sdk installed and
+will pull the latest source code from GitHub. There is a script in
+the /scripts folder that can be used to build the image.
