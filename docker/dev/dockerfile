@@ -11,7 +11,7 @@ RUN chmod +x scripts/install_dotnetcore.sh && scripts/install_dotnetcore.sh
 #RUN chmod +x scripts/install_mono.sh && scripts/install_mono.sh
 
 # Clone the code and restore the packages
-ENV DOTNET_CLI_TELEMETRY_OPTOUT=true
+ENV DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1 DOTNET_CLI_TELEMETRY_OPTOUT=1
 RUN git clone https://github.com/garfoot/FluentUri.git fluenturi \
     && dotnet restore fluenturi
 

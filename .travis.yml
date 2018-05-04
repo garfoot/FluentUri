@@ -5,4 +5,4 @@ dotnet: 2.1.104
 install:
   - dotnet restore
 script:
-  - dotnet test FluentUriBuilder.UnitTests
+  - dotnet test src/FluentUriBuilder.UnitTests
