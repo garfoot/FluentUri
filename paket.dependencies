@@ -11,4 +11,6 @@ group UnitTest
 	storage: none
 
 	nuget FluentAssertions
+	nuget Microsoft.NET.Test.Sdk
 	nuget NUnit
+	nuget NUnit3TestAdapter >= 3.8		# dotnet CLI support was added in 3.8

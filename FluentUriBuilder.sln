@@ -17,7 +17,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{E95A0F
 		paket.lock = paket.lock
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentUriBuilder.UnitTests", "FluentUriBuilder.UnitTests\FluentUriBuilder.UnitTests.csproj", "{7DFE4BEB-0B8C-45E3-9279-F3DFA3F4ADAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUriBuilder.UnitTests", "FluentUriBuilder.UnitTests\FluentUriBuilder.UnitTests.csproj", "{7DFE4BEB-0B8C-45E3-9279-F3DFA3F4ADAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9963D480-9D00-4595-941A-D02F9D89626A}"
+	ProjectSection(SolutionItems) = preProject
+		license.md = license.md
+		readme.md = readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
