@@ -1,0 +1,8 @@
+language: csharp
+solution: FluentUriBuilder.sln
+mono: none
+dotnet: 2.1.104
+install:
+  - dotnet restore
+script:
+  - dotnet test FluentUriBuilder.UnitTests
