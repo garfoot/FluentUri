@@ -5,6 +5,10 @@ compatible project.
 The library is still in development and subject to change, documentation will
 be provided upon intial release.
 
+## License
+The project is licensed under an MIT open source license, please read
+[license.md](license.md) for more details.
+
 ## Development
 ### Building
 #### Building with Visual Studio
@@ -30,14 +34,5 @@ as required (e.g. ReSharper, nCrunch).
 
 #### Testing with ```dotnet``` CLI
 Run the unit tests from the command line (assuming in solution root) with
-```dotnet test FluentUriBuilder.UnitTests```.
+```dotnet test src/FluentUriBuilder.UnitTests```.
 
-
-### Package Management
-The project uses [Paket](https://fsprojects.github.io/Paket/) to manage the
-NuGet packages used. Paket is an alternative NuGet client with several
-advantages over the normal NuGet command line, such as solution wide versioning
-and a lock file. If you've used any package manager command lines such as npm,
-bower or yarn then it should be fairly simple to pick up. Please check out the
-[documentation](https://fsprojects.github.io/Paket/) on the Paket GitHub for
-more information.

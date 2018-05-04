@@ -3,21 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUriBuilder", "FluentUriBuilder\FluentUriBuilder.csproj", "{E0C44C0A-3AF6-4B13-802A-A215384BF99A}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".git", ".git", "{D8E852FB-90CC-4596-AD4C-74D2A0FDC6DF}"
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{E95A0F5C-AAD4-40BF-BEE7-744F8E5FCD70}"
-	ProjectSection(SolutionItems) = preProject
-		paket.dependencies = paket.dependencies
-		paket.lock = paket.lock
-	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUriBuilder.UnitTests", "FluentUriBuilder.UnitTests\FluentUriBuilder.UnitTests.csproj", "{7DFE4BEB-0B8C-45E3-9279-F3DFA3F4ADAA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9963D480-9D00-4595-941A-D02F9D89626A}"
 	ProjectSection(SolutionItems) = preProject
@@ -25,20 +15,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		readme.md = readme.md
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUriBuilder", "src\FluentUriBuilder\FluentUriBuilder.csproj", "{2A92AD63-BC7A-4C43-B2CE-FEEF04362FF0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentUriBuilder.UnitTests", "src\FluentUriBuilder.UnitTests\FluentUriBuilder.UnitTests.csproj", "{83882E38-72F2-4200-8245-2EAA22B88D60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E0C44C0A-3AF6-4B13-802A-A215384BF99A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E0C44C0A-3AF6-4B13-802A-A215384BF99A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E0C44C0A-3AF6-4B13-802A-A215384BF99A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E0C44C0A-3AF6-4B13-802A-A215384BF99A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7DFE4BEB-0B8C-45E3-9279-F3DFA3F4ADAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7DFE4BEB-0B8C-45E3-9279-F3DFA3F4ADAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7DFE4BEB-0B8C-45E3-9279-F3DFA3F4ADAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7DFE4BEB-0B8C-45E3-9279-F3DFA3F4ADAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A92AD63-BC7A-4C43-B2CE-FEEF04362FF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A92AD63-BC7A-4C43-B2CE-FEEF04362FF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A92AD63-BC7A-4C43-B2CE-FEEF04362FF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A92AD63-BC7A-4C43-B2CE-FEEF04362FF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83882E38-72F2-4200-8245-2EAA22B88D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83882E38-72F2-4200-8245-2EAA22B88D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83882E38-72F2-4200-8245-2EAA22B88D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83882E38-72F2-4200-8245-2EAA22B88D60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

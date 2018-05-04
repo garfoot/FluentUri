@@ -1,5 +1,0 @@
-﻿group UnitTest
-	FluentAssertions
-	Microsoft.NET.Test.Sdk
-	NUnit
-	NUnit3TestAdapter
