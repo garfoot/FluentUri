@@ -1,6 +1,6 @@
 language: csharp
 solution: FluentUriBuilder.sln
-mono: none
+mono: latest
 dotnet: 2.1.104
 install:
   - dotnet restore
