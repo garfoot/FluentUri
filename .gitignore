@@ -243,8 +243,7 @@ FakesAssemblies/
 _Pvt_Extensions
 
 # Paket dependency manager
-# Using magic mode so paket.exe is the bootstrapper and should be committed
-#.paket/paket.exe
+.paket/paket.exe
 paket-files/
 
 # FAKE - F# Make
@@ -260,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+
+# VS Code
+.vscode/
