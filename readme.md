@@ -45,3 +45,6 @@ CI build system.
 The provided dockerfile will build and image with dotnet-sdk installed and
 will pull the latest source code from GitHub. There is a script in
 the /scripts folder that can be used to build the image.
+
+### Current build status
+<img src="https://travis-ci.org/garfoot/FluentUri.svg?branch=master" />
