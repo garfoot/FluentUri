@@ -8,6 +8,7 @@ namespace FluentUriBuilder.UnitTests
     [TestFixture]
     public class FluentUriParseTests
     {
+        [TestCase("http://www.example.com", "http://www.example.com/")]
         [TestCase("http://www.example.com/this/is/a/path", "http://www.example.com/this/is/a/path/")]
         [TestCase("http://www.example.com:8080/this/is/a/path", "http://www.example.com:8080/this/is/a/path/")]
         [TestCase("http://www.example.com/this/is/a/path#fragment", "http://www.example.com/this/is/a/path/#fragment")]

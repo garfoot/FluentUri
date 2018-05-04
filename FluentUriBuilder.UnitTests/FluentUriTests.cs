@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using FluentAssertions;
 using Garfoot.FluentUriBuilder;
+using Garfoot.FluentUriBuilder.Interfaces;
 using NUnit.Framework;
 
 namespace FluentUriBuilder.UnitTests
@@ -15,9 +16,9 @@ namespace FluentUriBuilder.UnitTests
         public void SchemeAndHost_ReturnsCorrectUri()
         {
             string uri = FluentUri.Create()
-                                            .Scheme("http")
-                                            .Host("www.example.com")
-                                            .AsString();
+                                  .Scheme("http")
+                                  .Host("www.example.com")
+                                  .AsString();
 
             uri.Should().Be("http://www.example.com/");
         }
@@ -26,10 +27,10 @@ namespace FluentUriBuilder.UnitTests
         public void PathSegments_ReturnsCorrectUri(IEnumerable<string> pathSegments, string expected)
         {
             string uri = FluentUri.Create()
-                                            .Scheme("http")
-                                            .Host("www.example.com")
-                                            .AddPathSegment(pathSegments)
-                                            .AsString();
+                                  .Scheme("http")
+                                  .Host("www.example.com")
+                                  .AddPathSegment(pathSegments)
+                                  .AsString();
 
             uri.Should().Be(expected);
         }
@@ -38,10 +39,10 @@ namespace FluentUriBuilder.UnitTests
         public void WithPortNot80_ReturnsUriWithExplicitPort()
         {
             string uri = FluentUri.Create()
-                                            .Scheme("http")
-                                            .Host("www.example.com")
-                                            .Port(8080)
-                                            .AsString();
+                                  .Scheme("http")
+                                  .Host("www.example.com")
+                                  .Port(8080)
+                                  .AsString();
 
             uri.Should().Be("http://www.example.com:8080/");
         }
@@ -50,10 +51,10 @@ namespace FluentUriBuilder.UnitTests
         public void WithPort80_ReturnsUriWithImplicitPort()
         {
             string uri = FluentUri.Create()
-                                            .Scheme("http")
-                                            .Host("www.example.com")
-                                            .Port(80)
-                                            .AsString();
+                                  .Scheme("http")
+                                  .Host("www.example.com")
+                                  .Port(80)
+                                  .AsString();
 
             uri.Should().Be("http://www.example.com/");
         }
@@ -63,12 +64,12 @@ namespace FluentUriBuilder.UnitTests
         public void AddQueryParam_MultipleSingleItems_ReturnsCorrectUri()
         {
             string uri = FluentUri.Create()
-                                            .Scheme("http")
-                                            .Host("www.example.com")
-                                            .AddQueryParam("aKey1", "aValue1")
-                                            .AddQueryParam("aKey2", "aVal ue2")
-                                            .AddQueryParam("aKey1", null)
-                                            .AsString();
+                                  .Scheme("http")
+                                  .Host("www.example.com")
+                                  .AddQueryParam("aKey1", "aValue1")
+                                  .AddQueryParam("aKey2", "aVal ue2")
+                                  .AddQueryParam("aKey1", null)
+                                  .AsString();
 
             uri.Should().Be("http://www.example.com/?aKey1=aValue1&aKey2=aVal+ue2&aKey1=");
         }
@@ -77,10 +78,10 @@ namespace FluentUriBuilder.UnitTests
         public void AddQueryParam_MultipleParamsItems_ReturnsCorrectUri()
         {
             string uri = FluentUri.Create()
-                                            .Scheme("http")
-                                            .Host("www.example.com")
-                                            .AddQueryParam(("aKey1", "aValue1"), ("aKey2", "aVal ue2"), ("aKey1", null))
-                                            .AsString();
+                                  .Scheme("http")
+                                  .Host("www.example.com")
+                                  .AddQueryParam(("aKey1", "aValue1"), ("aKey2", "aVal ue2"), ("aKey1", null))
+                                  .AsString();
 
             uri.Should().Be("http://www.example.com/?aKey1=aValue1&aKey2=aVal+ue2&aKey1=");
         }
@@ -89,15 +90,15 @@ namespace FluentUriBuilder.UnitTests
         public void AddQueryParam_DictionaryOfItems_ReturnsCorrectUri()
         {
             string uri = FluentUri.Create()
-                                            .Scheme("http")
-                                            .Host("www.example.com")
-                                            .AddQueryParam(new Dictionary<string, string>
-                                            {
-                                                ["aKey1"] = "aValue1",
-                                                ["aKey2"] = "aVal ue2",
-                                                ["aKey3"] = null
-                                            })
-                                            .AsString();
+                                  .Scheme("http")
+                                  .Host("www.example.com")
+                                  .AddQueryParam(new Dictionary<string, string>
+                                  {
+                                      ["aKey1"] = "aValue1",
+                                      ["aKey2"] = "aVal ue2",
+                                      ["aKey3"] = null
+                                  })
+                                  .AsString();
 
             uri.Should().Be("http://www.example.com/?aKey1=aValue1&aKey2=aVal+ue2&aKey3=");
         }
@@ -107,19 +108,18 @@ namespace FluentUriBuilder.UnitTests
         [TestCase(null, "aPassword", "http://:aPassword@www.example.com/")]
         public void UsernameAndPassword_ReturnsCorrectUri(string username, string password, string expected)
         {
-            var uri = FluentUri.Create()
-                                         .Scheme("http")
-                                         .Host("www.example.com")
-                                         .Username(username);
+            IFluentUri uri = FluentUri.Create(new FluentUriOptions {AllowPasswordInUserInfo = true})
+                                      .Scheme("http")
+                                      .Host("www.example.com")
+                                      .Username(username);
 
             if (!password.IsNullOrEmpty())
             {
-                uri.WithOptions(i => i.AllowPasswordInUserInfo = true)
-                   .Password(password);
+                uri.Password(password);
             }
-                                            
 
-            var result = uri.AsString();
+
+            string result = uri.AsString();
 
             result.Should().Be(expected);
         }
@@ -128,10 +128,10 @@ namespace FluentUriBuilder.UnitTests
         public void Fragment_ReturnsUriWithFragment()
         {
             string uri = FluentUri.Create(new FluentUriOptions {AlwaysSlashTerminatePath = true})
-                                            .Scheme("http")
-                                            .Host("www.example.com")
-                                            .Fragment("someFragment")
-                                            .AsString();
+                                  .Scheme("http")
+                                  .Host("www.example.com")
+                                  .Fragment("someFragment")
+                                  .AsString();
 
             uri.Should().Be("http://www.example.com/#someFragment");
         }

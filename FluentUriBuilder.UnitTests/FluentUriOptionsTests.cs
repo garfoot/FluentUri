@@ -1,6 +1,7 @@
 ﻿using System;
 using FluentAssertions;
 using Garfoot.FluentUriBuilder;
+using Garfoot.FluentUriBuilder.Interfaces;
 using NUnit.Framework;
 
 namespace FluentUriBuilder.UnitTests
@@ -11,7 +12,7 @@ namespace FluentUriBuilder.UnitTests
         [Test]
         public void AlwaysSlashTerminatePath_TurnedOff_ReturnedPathHasNoTrailingSlash()
         {
-            IFluentUriBase uri = FluentUri.Create(new FluentUriOptions {AlwaysSlashTerminatePath = false})
+            IFluentUri uri = FluentUri.Create(new FluentUriOptions {AlwaysSlashTerminatePath = false})
                                                     .Scheme("http")
                                                     .Host("aHost")
                                                     .AddPathSegment("/test/path");
@@ -24,7 +25,7 @@ namespace FluentUriBuilder.UnitTests
         [Test]
         public void AlwaysSlashTerminatePath_TurnedOn_ReturnedPathHasNoTrailingSlash()
         {
-            IFluentUriBase uri = FluentUri.Create(new FluentUriOptions {AlwaysSlashTerminatePath = true})
+            IFluentUri uri = FluentUri.Create(new FluentUriOptions {AlwaysSlashTerminatePath = true})
                                                     .Scheme("http")
                                                     .Host("aHost")
                                                     .AddPathSegment("/test/path");
@@ -39,7 +40,7 @@ namespace FluentUriBuilder.UnitTests
         [TestCase("")]
         public void AllowPassword_TurnedOff_ThrowsInvalidUriException(string password)
         {
-            IFluentUriBase uri = FluentUri.Create(new FluentUriOptions {AllowPasswordInUserInfo = false})
+            IFluentUri uri = FluentUri.Create(new FluentUriOptions {AllowPasswordInUserInfo = false})
                                                     .Scheme("http")
                                                     .Host("aHost");
 
@@ -48,11 +49,10 @@ namespace FluentUriBuilder.UnitTests
         }
 
         [Test]
-        public void WithOptions_OptionsNeededForParse_ParseSucceeds()
+        public void OptionsNeededForParse_ParseSucceeds()
         {
-            var result = FluentUri.Parse("http://user:pass@www.example.com")
-                     .WithOptions(i => i.AllowPasswordInUserInfo = true)
-                     .AsString();
+            var result = FluentUri.Parse("http://user:pass@www.example.com", new FluentUriOptions {AllowPasswordInUserInfo = true})
+                                  .AsString();
 
             result.Should().Be("http://user:pass@www.example.com/", "URI should parse ok with the options set");
         }
