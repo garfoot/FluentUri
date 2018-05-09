@@ -45,7 +45,7 @@ namespace FluentUriBuilder.UnitTests
                                                     .Host("aHost");
 
             var exception = Assert.Catch<InvalidUriException>(() => uri.Password(password), "An exception is expected if a password is set");
-            exception.Message.Should().Contain("password", "the exception should be about the password");
+            exception.Message.Should().Contain("Password", "the exception should be about the password");
         }
 
         [Test]

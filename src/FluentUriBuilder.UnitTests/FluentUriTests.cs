@@ -106,12 +106,12 @@ namespace FluentUriBuilder.UnitTests
         [TestCase("aUser", null, "http://aUser@www.example.com/")]
         [TestCase("aUser", "aPassword", "http://aUser:aPassword@www.example.com/")]
         [TestCase(null, "aPassword", "http://:aPassword@www.example.com/")]
-        public void UsernameAndPassword_ReturnsCorrectUri(string username, string password, string expected)
+        public void UserNameAndPassword_ReturnsCorrectUri(string userName, string password, string expected)
         {
             IFluentUri uri = FluentUri.Create(new FluentUriOptions {AllowPasswordInUserInfo = true})
                                       .Scheme("http")
                                       .Host("www.example.com")
-                                      .Username(username);
+                                      .UserName(userName);
 
             if (!password.IsNullOrEmpty())
             {

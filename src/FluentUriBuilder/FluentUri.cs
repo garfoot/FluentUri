@@ -56,13 +56,13 @@ namespace Garfoot.FluentUriBuilder
                 int index = tempUri.UserInfo.IndexOf(':');
                 if (index == -1)
                 {
-                    builder.Username(tempUri.UserInfo);
+                    builder.UserName(tempUri.UserInfo);
                 }
                 else if (index < tempUri.UserInfo.Length)
                 {
-                    string username = tempUri.UserInfo.Substring(0, index);
+                    string userName = tempUri.UserInfo.Substring(0, index);
                     string password = tempUri.UserInfo.Substring(index + 1);
-                    builder.Username(username)
+                    builder.UserName(userName)
                            .Password(password);
                 }
             }

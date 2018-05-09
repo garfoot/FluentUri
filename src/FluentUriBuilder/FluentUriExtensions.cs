@@ -97,16 +97,16 @@ namespace Garfoot.FluentUriBuilder
         }
 
         /// <summary>
-        ///     Sets the username for the URI.
+        ///     Sets the user name for the URI.
         /// </summary>
         /// <param name="uri">The URI.</param>
-        /// <param name="username">The username.</param>
+        /// <param name="userName">The user name.</param>
         /// <returns></returns>
-        public static IFluentUri Username(this IFluentUri uri, string username)
+        public static IFluentUri UserName(this IFluentUri uri, string userName)
         {
             var context = (FluentUriContext) uri;
 
-            context.UriInfo.Username = username;
+            context.UriInfo.UserName = userName;
 
             return context;
         }
@@ -124,7 +124,7 @@ namespace Garfoot.FluentUriBuilder
             if (!context.Options.AllowPasswordInUserInfo)
             {
                 throw new InvalidUriException(
-                    "Passwords cannot be encoded into a URI unless the AllowPasswordInUserInfo option is set as this weakens the security of the password.");
+                    "Passwords cannot be encoded into a URI unless the AllowPasswordInUserInfo option is set.");
             }
 
             context.UriInfo.Password = password;

@@ -15,9 +15,9 @@ namespace Garfoot.FluentUriBuilder
             builder.Append($"{uri.UriInfo.Scheme}://");
 
             // Add in the authority (userinfo, host and port)
-            if (!uri.UriInfo.Username.IsNullOrWhiteSpace())
+            if (!uri.UriInfo.UserName.IsNullOrWhiteSpace())
             {
-                builder.Append(uri.UriInfo.Username);
+                builder.Append(uri.UriInfo.UserName);
                 hasCredentials = true;
             }
 
