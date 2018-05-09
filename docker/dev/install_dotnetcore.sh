@@ -7,4 +7,7 @@ sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubu
 
 # update and install dotnet core
 apt-get update
+
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 apt-get install -y dotnet-sdk-2.1.104

@@ -1,6 +1,6 @@
-FROM ubuntu:14.04
-WORKDIR /app
+FROM travisci/ci-garnet:packer-1512502276-986baf0
 SHELL ["/bin/bash", "-c"]
+WORKDIR /home/root
 
 # Update APT and install some pre-requisites
 RUN apt-get update && apt-get install -y apt-transport-https curl git
@@ -10,9 +10,13 @@ RUN chmod +x scripts/install_dotnetcore.sh && scripts/install_dotnetcore.sh
 # Mono is not currently required in this image (it crashes paket so using nuget)
 #RUN chmod +x scripts/install_mono.sh && scripts/install_mono.sh
 
+# Switch to travis user
+USER travis
+WORKDIR /home/travis
+
 # Clone the code and restore the packages
-ENV DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1 DOTNET_CLI_TELEMETRY_OPTOUT=1
-RUN git clone https://github.com/garfoot/FluentUri.git fluenturi \
+ENV DOTNET_CLI_TELEMETRY_OPTOUT=1
+RUN git clone --branch=master --depth=50 https://github.com/garfoot/FluentUri.git fluenturi \
     && dotnet restore fluenturi
 
 ENTRYPOINT [ "bash" ]
